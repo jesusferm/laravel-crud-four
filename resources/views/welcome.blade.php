@@ -9,6 +9,20 @@
 		<!-- Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
+			<!-- CSRF Token -->
+		<meta name="csrf-token" content="{{ csrf_token() }}">
+
+		<title>{{ config('app.name', 'Laravel') }}</title>
+
+		<!-- Scripts -->
+		<script src="{{ asset('js/app.js') }}" defer></script>
+
+		<!-- Fonts -->
+		<link rel="dns-prefetch" href="//fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+		<!-- Styles -->
+		<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 		<!-- Styles -->
 		<style>
 			html, body {
@@ -64,6 +78,38 @@
 		</style>
 	</head>
 	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+			<div class="container-xl">
+			<a class="navbar-brand" href="#">
+				{{ config('app.name', 'Laravel') }}
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarsExample07XL">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Link</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="dropdown07XL" data-toggle="dropdown" aria-expanded="false">Dropdown</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown07XL">
+							<a class="dropdown-item" href="#">Action</a>
+							<a class="dropdown-item" href="#">Another action</a>
+							<a class="dropdown-item" href="#">Something else here</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		</nav>
 		<div class="flex-center position-ref full-height">
 			@if (Route::has('login'))
 				<div class="top-right links">
