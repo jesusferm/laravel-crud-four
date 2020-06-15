@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('main');
+	return view('main');
 });
 
 Auth::routes();
@@ -24,7 +24,11 @@ Auth::routes();
 Route::get('/home', 'PostsController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::resource('/posts', 'PostsController');
+	Route::resource('/posts', 'PostsController');
+});
+
+Route::group(['middleware' => 'auth'], function () {
+	Route::get('/post/{slug?}', ['as' => 'posts.post', 'uses' => 'PostsController@view']);
 });
 
 Route::get('/add', 'PostsController@create');
@@ -39,7 +43,7 @@ Route::post('/upimage', 'UsersController@upImage');
 Route::post('/loadimage', 'UsersController@loadImage');
 Route::post('/uppassword', 'UsersController@upPassword');
 
-Route::get('/post/{slug?}', ['as' => 'posts.post', 'uses' => 'PostsController@view']);
+
 
 Route::post('/page', 'PostsController@load');
 
