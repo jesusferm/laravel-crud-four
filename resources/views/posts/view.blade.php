@@ -1,6 +1,6 @@
 <?php
 use \App\Http\Controllers\HomeController;
-use \App\Http\Controllers\TodoController;
+use \App\Http\Controllers\PostsController;
 ?>
 @extends('layouts.app')
 @section('content')
@@ -26,14 +26,14 @@ use \App\Http\Controllers\TodoController;
 						{{$todo->title}}
 					</h1>
 					<p class="d-inline-block post-meta">
-						Por <a href="" class="post-meta-author">{{$todo->name}}</a> - <a href="" class="post-meta-date">{{TodoController::nicetime($todo->created_at)}}</a>
+						Por <a href="" class="post-meta-author">{{$todo->name}}</a> - <a href="" class="post-meta-date">{{PostsController::nicetime($todo->created_at)}}</a>
 					</p>
 					<p class="d-inline-block float-right post-comments">
 						<a href="" class=""><i class=" fa fa-comments"></i> 0 comentarios</a>
 					</p>
 				</div>
 				<div class="col-md-12">
-					<img class="img-fluid" src="{{($todo->nom_img!=''?asset('public').'/'.$todo->dir_files.$todo->nom_img: asset('public/images/default.svg'))}}"/>
+					<img class="img-fluid" src="{{($todo->image!=''?asset($todo->files.$todo->image): asset('images/default.svg'))}}"/>
 				</div>
 				<div class="col-md-3 mt-4">
 					<h4 class="related-posts-title">
