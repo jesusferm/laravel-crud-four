@@ -51,7 +51,11 @@
 									</div>
 									<div class="col-md-3">
 										<button type="submit" id="btn-up-imgs-all" class="btn btn-success btn-block">
-											<i class="fa fa-upload"></i>
+											<svg class="bi bi-cloud-upload" width="1.2em" height="1.2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+												<path d="M4.887 6.2l-.964-.165A2.5 2.5 0 1 0 3.5 11H6v1H3.5a3.5 3.5 0 1 1 .59-6.95 5.002 5.002 0 1 1 9.804 1.98A2.501 2.501 0 0 1 13.5 12H10v-1h3.5a1.5 1.5 0 0 0 .237-2.981L12.7 7.854l.216-1.028a4 4 0 1 0-7.843-1.587l-.185.96z"/>
+												<path fill-rule="evenodd" d="M5 8.854a.5.5 0 0 0 .707 0L8 6.56l2.293 2.293A.5.5 0 1 0 11 8.146L8.354 5.5a.5.5 0 0 0-.708 0L5 8.146a.5.5 0 0 0 0 .708z"/>
+												<path fill-rule="evenodd" d="M8 6a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0v-8A.5.5 0 0 1 8 6z"/>
+											</svg>
 										</button>
 									</div>
 								</div>
@@ -86,7 +90,9 @@
 									</div>
 									<div class="col-md-12">
 										<button id="btn-up-account" name="btn-up-account" type="submit" class="btn btn-primary float-right">
-											<i class="fa fa-check"></i> Actualizar
+											<svg class="bi bi-check2" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd" d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+											</svg> Actualizar
 										</button>
 									</div>
 								</div>
@@ -124,7 +130,9 @@
 							</div>
 							<div class="col-md-2">
 								<button id="btn-up-passwd" name="btn-up-passwd" type="submit" class="btn btn-primary float-right btn-block">
-									<i class="fa fa-check"></i> Actualizar
+									<svg class="bi bi-check2" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+									</svg> Actualizar
 								</button>
 							</div>
 						</div>
@@ -134,7 +142,7 @@
 		</div>
 	</div>
 </div>
-<script src="{{asset('public/js/ajxtodoapp.js')}}" defer></script>
+<script src="{{asset('js/ajxtodoapp.js')}}" defer></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		loadImg();

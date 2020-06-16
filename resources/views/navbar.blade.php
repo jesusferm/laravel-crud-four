@@ -32,7 +32,7 @@
 					<li class="nav-item dropdown">
 						<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
 							<span class="pull-left">
-								<img src="{{(Auth::user()->image!='' && file_exists(Auth::user()->files.Auth::user()->image) ? asset(Auth::user()->files.Auth::user()->image): asset('images/default.svg'))}}" class="img-circle rounded-circle bg-white" title="Imagen user" alt="Imagen user" width="30px" height="30px"> Menu
+								<img src="{{(Auth::user()->image!='' && file_exists(public_path('/').Auth::user()->files.Auth::user()->image) ? asset(Auth::user()->files.Auth::user()->image): asset('images/default.svg'))}}" class="img-circle rounded-circle bg-white" title="Imagen user" alt="Imagen user" width="30px" height="30px"> Menu
 							</span>
 							<span class="caret"></span>
 						</a>
