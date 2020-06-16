@@ -86,21 +86,85 @@
 	</head>
 	<body>
 		@include('navbar')
-		<div class="flex-center position-ref full-height mt-5">
-			<div class="content">
-				<div class="title m-b-md">
-					Laravel
+		<div class="container" style="margin-top: 5rem;">
+			<div class="row mt-5">
+				<div class="col-md-3">
+					<ul class="list-group mb-3">
+						<li class="list-group-item d-flex justify-content-between lh-condensed">
+							<div>
+								<h6 class="my-0"><a href="https://blog.linuxitos.com/iniciando-con-xampp-laravel-7-fedora-32">Laravel parte 1</a></h6>
+								<a href="https://blog.linuxitos.com/" target="_blank">
+									<small class="text-muted">Linuxitos</small>
+								</a>
+							</div>
+						</li>
+						<li class="list-group-item d-flex justify-content-between lh-condensed">
+							<div>
+								<h6 class="my-0"><a href="https://blog.linuxitos.com/parte-2-laravel-7-xampp-fedora-32">Laravel parte 2</a></h6>
+								<a href="https://blog.linuxitos.com/" target="_blank">
+									<small class="text-muted">Linuxitos</small>
+								</a>
+							</div>
+						</li>
+						<li class="list-group-item d-flex justify-content-between lh-condensed">
+							<div>
+								<h6 class="my-0"><a href="https://blog.linuxitos.com/parte-3-laravel-7-xampp-fedora-32">Laravel parte 3</a></h6>
+								<a href="https://blog.linuxitos.com/" target="_blank">
+									<small class="text-muted">Linuxitos</small>
+								</a>
+							</div>
+						</li>
+						<li class="list-group-item d-flex justify-content-between lh-condensed">
+							<div>
+								<h6 class="my-0"><a href="https://blog.linuxitos.com/parte-4-laravel-7-xampp-fedora-32">Laravel parte 4</a></h6>
+								<a href="https://blog.linuxitos.com/" target="_blank">
+									<small class="text-muted">Linuxitos</small>
+								</a>
+							</div>
+						</li>
+						<li class="list-group-item d-flex justify-content-between lh-condensed">
+							<div>
+								<h6 class="my-0"><a href="https://blog.linuxitos.com/">Linuxitos</a></h6>
+								<a href="https://blog.linuxitos.com/" target="_blank">
+									<small class="text-muted">Linuxitos</small>
+								</a>
+							</div>
+						</li>
+					</ul>
 				</div>
-
-				<div class="links">
-					<a href="https://laravel.com/docs">Docs</a>
-					<a href="https://laracasts.com">Laracasts</a>
-					<a href="https://laravel-news.com">News</a>
-					<a href="https://blog.laravel.com">Blog</a>
-					<a href="https://nova.laravel.com">Nova</a>
-					<a href="https://forge.laravel.com">Forge</a>
-					<a href="https://vapor.laravel.com">Vapor</a>
-					<a href="https://github.com/laravel/laravel">GitHub</a>
+				<div class="col-md-9">
+					<div class="row">
+						@if(!empty($data) && $data->count())
+							@foreach($data as $key => $value)
+								<div class="col-lg-3 col-md-3 col-sm-6 col-12 mb-3 d-flex">
+									<div id="post-{{ $value->id }}" class="post post-{{ $value->id }} border-bottom-2" style="width:100%;">
+										<a href="{{ route('home.view', $value->slug) }}" title="{{ ucfirst($value->title) }}">
+											<div class="post-image">
+												<img src="{{($value->image!=''?asset($value->files.$value->image): asset('images/default.svg'))}}" class="img-fluid" alt="" sizes="(max-width: 172px) 100vw, 172px">
+											</div>
+										</a>
+										<div class="post-header">
+											<a href="{{ route('home.view', $value->slug) }}" title="{{ $value->title }}">
+												{{ ucfirst($value->title) }}
+											</a>
+											<p class="post-meta">
+												<a href="{{ route('home.view', $value->slug) }}">May 15, 2020</a> — <a href="{{ route('home.view', $value->slug) }}/#comments">7 Comments</a>
+											</p>
+										</div>
+									</div>
+								</div>
+							@endforeach
+						@else
+							<div class="col-md-12">
+								<div class="alert alert-danger" role="alert">
+									<i class="fa fa-exclamaiton-circle"></i> Sin resultados.
+								</div>
+							</div>
+						@endif
+						<div class="col-md-12 text-center">
+							{!! $data->links() !!}
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

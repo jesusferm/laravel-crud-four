@@ -22,6 +22,13 @@ class PostsController extends Controller
 		return view('posts.list', ['posts' => $posts]);
 	}
 
+	public function main()
+	{
+		$data = Posts::where('status', '=', 'publicado')
+					->paginate(10);
+		return view('main', compact('data'));
+	}
+
 	public function ajaxAdd(Request $request){
 		$userId 			= Auth::user()->id;
 		$input 				= $request->input();
@@ -206,7 +213,7 @@ class PostsController extends Controller
 		} else {
 			$request->session()->flash('error', 'Oops something went wrong, Todo not saved');
 		}
-		return redirect('todo');
+		return redirect('posts');
 	}
 
 	/**
@@ -247,7 +254,7 @@ class PostsController extends Controller
 		if ($post) {
 			return view('posts.edit', [ 'todo' => $post ]);
 		} else {
-			return redirect('todo')->with('error', 'Todo not found');
+			return redirect('posts')->with('error', 'Todo not found');
 		}
 	}
 	/**
@@ -262,7 +269,7 @@ class PostsController extends Controller
 		$post 		= Posts::find($id);
 		$input 		= $request->input();
 		if (!$post) {
-			return redirect('todo')->with('danger', 'Regitro no encontrado.');
+			return redirect('posts')->with('danger', 'Regitro no encontrado.');
 		}
 
 		$path = public_path().'/'.$post->files;
