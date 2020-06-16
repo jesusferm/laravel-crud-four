@@ -140,7 +140,7 @@
 									<div id="post-{{ $value->id }}" class="post post-{{ $value->id }} border-bottom-2" style="width:100%;">
 										<a href="{{ route('home.view', $value->slug) }}" title="{{ ucfirst($value->title) }}">
 											<div class="post-image">
-												<img src="{{($value->image!=''?asset($value->files.$value->image): asset('images/default.svg'))}}" class="img-fluid" alt="" sizes="(max-width: 172px) 100vw, 172px">
+												<img src="{{($value->image!='' && file_exists($value->files.$value->image) ? asset($value->files.$value->image) : asset('images/default.svg'))}}" class="img-fluid" alt="" sizes="(max-width: 172px) 100vw, 172px">
 											</div>
 										</a>
 										<div class="post-header">

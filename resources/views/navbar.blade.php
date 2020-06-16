@@ -31,10 +31,20 @@
 				@else
 					<li class="nav-item dropdown">
 						<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-							{{ Auth::user()->name }} <span class="caret"></span>
+							<span class="pull-left">
+								<img src="{{(Auth::user()->image!='' && file_exists(Auth::user()->files.Auth::user()->image) ? asset(Auth::user()->files.Auth::user()->image): asset('images/default.svg'))}}" class="img-circle rounded-circle bg-white" title="Imagen user" alt="Imagen user" width="30px" height="30px"> Menu
+							</span>
+							<span class="caret"></span>
 						</a>
 
 						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="{{url('/account')}}">
+								<svg class="bi bi-person-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+									<path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
+									<path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+									<path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
+								</svg> Perfil
+							</a>
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="{{url('/add')}}">
 								<svg class="bi bi-plus-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
