@@ -19,12 +19,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-/**
- * se redirecciona a la lista de registros que tenga el usuario*/
-Route::get('/home', 'PostsController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('/posts', 'PostsController');
+		/**
+	 * se redirecciona a la lista de registros que tenga el usuario*/
+	Route::get('/home', 'PostsController@index')->name('home');
 });
 
 Route::group(['middleware' => 'auth'], function () {
