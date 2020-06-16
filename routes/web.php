@@ -25,6 +25,17 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/home', 'PostsController@index')->name('home');
 });
 
+/**
+ * para el control y modificación de información de usuario*/
+Route::group(['middleware' => 'auth'], function () {
+	Route::resource('/account', 'UsersController');
+
+	Route::post('/accountupdate', 'UsersController@upProfile');
+	Route::post('/upimage', 'UsersController@upImage');
+	Route::post('/loadimage', 'UsersController@loadImage');
+	Route::post('/uppassword', 'UsersController@upPassword');
+});
+
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('/post/{slug?}', ['as' => 'posts.post', 'uses' => 'PostsController@view']);
 });
@@ -36,10 +47,6 @@ Route::get('/postupdate', 'PostsController@ajaxUpdate');
 Route::post('/postupdate', 'PostsController@ajaxUpdate');
 Route::post('/postdelete', 'PostsController@ajaxDelete');
 
-Route::post('/accountupdate', 'UsersController@upProfile');
-Route::post('/upimage', 'UsersController@upImage');
-Route::post('/loadimage', 'UsersController@loadImage');
-Route::post('/uppassword', 'UsersController@upPassword');
 
 
 
